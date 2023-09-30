@@ -59,7 +59,10 @@ CREATE TABLE `projetos` (
   `patrocinadores` varchar(20) DEFAULT NULL,
   `cidades` varchar(20) DEFAULT NULL,
   `etecoufatec` enum('E','F') DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `descricaoprojeto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `descricaoprojeto` (`descricaoprojeto`),
+  CONSTRAINT `projetos_ibfk_1` FOREIGN KEY (`descricaoprojeto`) REFERENCES `descricaop` (`idprojeto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -69,7 +72,7 @@ CREATE TABLE `projetos` (
 
 LOCK TABLES `projetos` WRITE;
 /*!40000 ALTER TABLE `projetos` DISABLE KEYS */;
-INSERT INTO `projetos` VALUES (1,'Ana, Luis e Vitoria','chip para animais',NULL,'Diadema','E'),(2,'Maria, José e João','garrafa inteligente',NULL,'Sorocaba','F'),(3,'Luisa, Mariana e Gui','mouse diferente',NULL,'Barueri','F'),(4,'Valentina, Enzo e Is','sensor de movimento',NULL,'São Bernardo','E'),(5,'Beatriz, Luara e Mar','caneta inteligente',NULL,'Casa Verde','E'),(6,'Rapha, Carolina e Ca','óculos 3D',NULL,'Ribeirão Pires','E');
+INSERT INTO `projetos` VALUES (1,'Ana, Luis e Vitoria','chip para animais',NULL,'Diadema','E',1),(2,'Maria, José e João','garrafa inteligente',NULL,'Sorocaba','F',2),(3,'Luisa, Mariana e Gui','mouse diferente',NULL,'Barueri','F',3),(4,'Valentina, Enzo e Is','sensor de movimento',NULL,'São Bernardo','E',4),(5,'Beatriz, Luara e Mar','caneta inteligente',NULL,'Casa Verde','E',5),(6,'Rapha, Carolina e Ca','óculos 3D',NULL,'Ribeirão Pires','E',6);
 /*!40000 ALTER TABLE `projetos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -82,4 +85,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29 17:35:43
+-- Dump completed on 2023-09-30 18:05:23
